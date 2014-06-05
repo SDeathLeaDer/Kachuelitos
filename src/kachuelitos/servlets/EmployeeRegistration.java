@@ -48,7 +48,6 @@ public class EmployeeRegistration extends HttpServlet {
 		"</fieldset>"+ 
 		"</form>"+
 		"</div>"+ "</body></html>");
-		
 
 	}
 
