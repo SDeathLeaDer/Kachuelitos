@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class employeeRegistration
  */
 @WebServlet("/employeeRegistration")
-public class employeeRegistration extends HttpServlet {
+public class EmployeeRegistration extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public employeeRegistration() {
+    public EmployeeRegistration() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,26 +28,28 @@ public class employeeRegistration extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
+		
 		out.println ("<!DOCTYPE html>\n" + "<html>\n" +
-		"<head><title>Formulario de registro</title></head>\n" +
-		"<body>\n" +
-		"<h1>Formulario de registro</h1>\n" +
-		"</body></html>");
-		out.println ("<!DOCTYPE html>\n" + "<html>\n" +
-		"<p>Nombre: " + "</p>");
-		out.println ("<!DOCTYPE html>\n" + "<form>\n <input  /> </form>");
-		out.println ("<!DOCTYPE html>\n" + "<html>\n" +
-				"<p>DNI: " + "</p>");
-		out.println ("<!DOCTYPE html>\n" + "<form>\n <input  /> </form>");
-		out.println ("<!DOCTYPE html>\n" + "<html>\n" +
-				"<p>Telefono: " + "</p>");
-		out.println ("<!DOCTYPE html>\n" + "<form>\n <input  /> </form>");
-		out.println ("<!DOCTYPE html>\n" + "<html>\n" +
-				"<p>Direccion: " + "</p>");
-		out.println ("<!DOCTYPE html>\n" + "<form>\n <input  /> </form>");
-		// TODO Auto-generated method stub
+		"<head><title>Formulario de registro</title>"+
+		"<link rel='stylesheet' href='styles/page.css' type='text/css' media='screen' title='no title' charset='utf-8'>"
+		+ "</head>" +
+		"<body> <div class = 'content' align='center'>"+
+		"<img class='image' alt='logo' src='images/logo.jpg' width='300px'> \n"+
+		"<form action='/Kachuelitos/registrar' method='get'>"+
+		"<fieldset style='width:300px'>" +
+		"<legend align='left'>Fomulario de registro</legend>"+
+		"<p>DNI <input type='' name='idni'/></p>"+ 	
+		"<p>Password <input name='ipassword'/></p>"+ 	
+		"<p>Correo <input name='icorreo'/></p>" +
+		"<p> ds<button> Registrarse </button></p>" +
+		"</fieldset>"+ 
+		"</form>"+
+		"</div>"+ "</body></html>");
+		
+
 	}
 
 	/**

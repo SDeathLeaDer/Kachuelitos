@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class employee
  */
 @WebServlet("/employee")
-public class employee extends HttpServlet {
+public class Employee extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public employee() {
+    public Employee() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,10 +29,15 @@ public class employee extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String s = request.getParameter("typework");
 		
-		 PrintWriter p  = response.getWriter();
-		 p.println("Estoy buscando" + s);
+		 response.setContentType("text/html");
+		 PrintWriter out = response.getWriter();
+		 out.println ("<!DOCTYPE html>\n" + "<html>\n" +
+		 "<head><title>Busqueda de un tipo de trabajo</title></head>\n" +
+		 "<body>\n" + "<h1>Tipo "+request.getParameter("typework")+"</h1>\n" +
+		 "</body></html>");
+		 
+		 
 	}
 
 	/**
