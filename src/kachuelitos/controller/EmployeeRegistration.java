@@ -1,4 +1,4 @@
-package kachuelitos.servlets;
+package kachuelitos.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
