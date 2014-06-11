@@ -1,20 +1,80 @@
 @CHARSET "ISO-8859-1";
 
+* {
+	margin: 0px;
+	padding: 0px
+}
+
 body {
+	margin: auto;
+	width: 960px;
+	height: 100%;
 
+}
+
+#header {
+	width: 960px;
+	height: 150px;
 	background: white;
 }
 
-.image {
+#logo {
+	float: left;
+	margin-top: 50px;
+	margin-left: 20px
+}
 
-	margin: 20px;
+#mainlogo {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+#login {
+	width: 960px;
+	height: 80px;
+	background: white;
+}
+
+#buttonTop {
+	float: right;
+	margin-top: 40px;
+	margin-right: 40px
 }
 
 
-.content{
+#main {
+	width: 960px;
+	height: 300px;
+	margin-top: 40px;
+	margin-bottom: 40px;
 	
+}
+
+#content {
+	width: 954px;
+	height: 500px;
 	background: white;
-	margin-top: 100px;
-	margin-bottom: 100px
-	
+	border-style:groove;
+	border-color:#010E6E;
+}
+
+.maincontent {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.maincontent2 {
+	margin-top: 50px;
+}
+
+footer {
+	width: 960px;
+	height: 80px;
+	text-align: center;
+	padding-top: 20px
+}
+
+button {
+	width: 100px;
+	height: 30px; 	
 }

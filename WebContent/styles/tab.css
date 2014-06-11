@@ -1,0 +1,59 @@
+@CHARSET "ISO-8859-1";
+
+#tabContainer {
+	padding: 3px 15px 0 15px;
+	background: #010E6E;
+
+}
+
+ul#topTab {
+	list-style-type: none;
+	width: 960px;
+	position: relative;
+	height: 27px;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 0;
+	padding: 11px 0 0 0;
+}
+
+ul#topTab li {
+	display: block;
+	float: left;
+	margin: 0 0 0 4px;
+	height: 27px;
+}
+
+ul#topTab li.left {
+	margin: 0;
+}
+
+ul#topTab li a {
+	display: block;
+	float: left;
+	color: #fff;
+	background: #C1C1C1;
+	line-height: 27px;
+	text-decoration: none;
+	padding: 0 17px 0 18px;
+	height: 27px;
+}
+
+ul#topTab li a.right {
+	padding-right: 19px;
+}
+
+ul#topTab li a:hover {
+	background: #FFFFFF;
+	color: black;
+}
+
+ul#topTab li a.current {
+	color: #2E4560;
+	background: #fff;
+}
+
+ul#topTab li a.current:hover {
+	color: #2E4560;
+	background: #fff;
+}
