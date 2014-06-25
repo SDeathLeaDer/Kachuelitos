@@ -7,18 +7,40 @@
 <title>Login de Usuario</title>
 <link rel="stylesheet" href="styles/page.css" type="text/css"
 	media="screen" title="no title" charset="utf-8">
-<script type="text/javascript" src="js/validation.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$('#submit').click(function(event) {
+		var dni = $('#idni').val();
+		var password = $('#ipassword').val();
+		
+		$.post('UserIdentification', {
+			cdni : dni,
+			cpassword: password,
+		}, function(responseText) {
+			if(responseText == 1){
+			 	window.location="useraccount.jsp";
+			 }
+			else{
+				var dni = $('#message');
+				dni.value="No se puede acceder datos incorrectos";
+			}
+		});
+	});
+});
+
+
+</script>
 </head>
 <body>
 
-<div id="header" align="center">
-	<img id='mainlogo' alt='logo' src='images/logo.jpg' width='300px'>
-</div>
-
+	<div id="header" align="center">
+		<img id='mainlogo' alt='logo' src='images/logo.jpg' width='300px'>
+	</div>
 
 	<div id='main' align='center'>
-		
-		<form action='/Kachuelitos/UserIdentification' method='post'>
+
+		<form>
 			<fieldset style='width: 300px'>
 				<legend align='left'>Login</legend>
 				<p class='maincontent'>
@@ -27,8 +49,9 @@
 				Password <input name='ipassword' type='password' />
 				</p>
 				<p class='maincontent'>
-					<button>Iniciar Sesión</button>
+					<input type="button" id="submit" value="Iniciar Sesión" />
 				</p>
+
 			</fieldset>
 		</form>
 		<form action='/Kachuelitos/UserRegister' method='get'>
