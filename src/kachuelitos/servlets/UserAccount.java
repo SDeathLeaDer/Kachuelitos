@@ -50,7 +50,7 @@ public class UserAccount extends HttpServlet {
 				"<div id='header'>\n"+
 				"<img id='logo' src='images/logo.jpg' width='250px'>\n"+
 				"<form action='/Kachuelitos/LogoutSession' method='post'>\n"+
-				"<button id ='buttonTop'>Cerrar Sesion</button>\n"+
+				"<p>Bienvenido: "+user.getName()+"<button id ='buttonTop'>Cerrar Sesion</button></p>\n"+
 				"</form>\n"+
 				"</div>\n"+
 				"<div id='tabContainer'>\n"+
@@ -61,7 +61,6 @@ public class UserAccount extends HttpServlet {
 				"</ul>\n"+
 				"</div>\n"+
 				"<div id='content'>\n"+
-				"<p>Bienvenido: "+user.getName()+"</p>\n"+
 				"</div>\n"+
 				"<footer>\n"+
 				"<div align='center'>\n"+

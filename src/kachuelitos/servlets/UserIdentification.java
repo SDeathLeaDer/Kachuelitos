@@ -19,14 +19,14 @@ import kachuelitos.model.UserDBManager;
 @WebServlet("/UserIdentification")
 public class UserIdentification extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserIdentification() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public UserIdentification() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -52,13 +52,13 @@ public class UserIdentification extends HttpServlet {
 			PrintWriter out = response.getWriter();		
 			UserDBManager userdb = new UserDBManager();
 			User user = userdb.identificationUser(Integer.valueOf(dni), password);
-//			int result = userdb.addUser(new User(Integer.valueOf(dni), password, email, Integer.valueOf(ubigeo)));
+			//			int result = userdb.addUser(new User(Integer.valueOf(dni), password, email, Integer.valueOf(ubigeo)));
 
 			if(user != null){
 				HttpSession session = request.getSession();
 				session.setAttribute("keyuser", user);
-				 //Tiempo sesion es 2 minutos
-	            session.setMaxInactiveInterval(2*60);
+				//Tiempo sesion es 2 minutos
+				session.setMaxInactiveInterval(2*60);
 				response.sendRedirect("/Kachuelitos/UserAccount");
 			}
 			else{
@@ -75,7 +75,7 @@ public class UserIdentification extends HttpServlet {
 		}
 
 		if(isError){
-			
+
 			switch (typeError) {
 			case 1:
 				contentError = "Existen campos vacios, vuelva a llenar el formulario";

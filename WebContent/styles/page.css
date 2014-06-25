@@ -44,10 +44,17 @@ body {
 
 #main {
 	width: 960px;
-	height: 300px;
+	height: 250px;
 	margin-top: 40px;
 	margin-bottom: 40px;
 	
+}
+
+#main2 {
+	width: 960px;
+	height: 500px;
+	margin-top: 40px;
+	margin-bottom: 40px;	
 }
 
 #content {
