@@ -11,8 +11,11 @@
 
 </head>
 <body>
+<div id="header" align="center">
+<img id="mainlogo" alt="logo" src="images/logo.jpg" width="300px">
+</div>
 	<div id="main2" align="center">
-		<img id="mainlogo" alt="logo" src="images/logo.jpg" width="300px">
+		
 		<br><br>
 		<form action="/Kachuelitos/UserValidation" method="post" onsubmit="return validationSubmit();" >
 			<fieldset style="width: 400px; padding: 10px">

@@ -4,11 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Login de Usuario 2</title>
+<title>Login de Usuario</title>
+<link rel="stylesheet" href="styles/page.css" type="text/css"
+	media="screen" title="no title" charset="utf-8">
+<script type="text/javascript" src="js/validation.js"></script>
 </head>
 <body>
+
+<div id="header" align="center">
+	<img id='mainlogo' alt='logo' src='images/logo.jpg' width='300px'>
+</div>
+
+
 	<div id='main' align='center'>
-		<img id='mainlogo' alt='logo' src='images/logo.jpg' width='300px'>
+		
 		<form action='/Kachuelitos/UserIdentification' method='post'>
 			<fieldset style='width: 300px'>
 				<legend align='left'>Login</legend>
