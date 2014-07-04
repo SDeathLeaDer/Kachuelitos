@@ -22,7 +22,19 @@ public class UserBean implements Serializable { /** * */
 		
 	public String validar() throws Exception{
 		
-		return null;
+		UserDAO useDAO = new UserDAO();
+		String sResponse = null;
+		
+		objUser = useDAO.identificationUser(this.dni, this.password);
+		fullname = objUser.getName()+ " " +objUser.getLasname();
+		
+		if(objUser == null){
+			sResponse = "fail";
+		}
+		else{
+			sResponse ="success";	
+		}
+		return sResponse;
 	}
 		
 	public int getDni(){
