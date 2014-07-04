@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Login de Usuario</title>
+
+	<h:outputStylesheet name="style/tab.css" />
+	<h:outputStylesheet name="style/page.css" />
+
+</h:head>
+<body>
+
+	<div id="header" align="center">
+		<img id='mainlogo' alt='logo' src='images/logo.jpg' width='300px' />
+	</div>
+
+	<div id='main' align='center'>
+
+		<h:form onsubmit="">
+			<fieldset style='width: 300px'>
+				<legend align='left'>Login</legend>
+				<p class='maincontent'>
+				DNI <h:inputText name='idni' type='number' value="#{userBean.dni }" />
+				</p>
+				
+				<p>
+				Password <h:inputText name='ipassword' type='password'
+						value="#{userBean.password }" />
+				</p>
+				<p class='maincontent'>
+					<h:commandButton type="submit" value="Iniciar Sesión"
+						action="#{userBean.validar}" inmediate="true" />
+				</p>
+
+				<div id="imessage"></div>
+
+			</fieldset>
+		</h:form>
+
+
+		<form action='/Kachuelitos/UserRegister' method='get'>
+			<p class='maincontent2'>
+				¿Quiere ser parte de la red de trabajadores de 101 Kachuelitos?
+				<button>Unete</button>
+			</p>
+		</form>
+	</div>
+	<footer>
+	<div align='center'>
+		<hr width='50%'/>
+		<p>Derechos Reserv@dos 101 Kachuelitos 2014</p>
+	</div>
+	</footer>
+</body>
+</html>

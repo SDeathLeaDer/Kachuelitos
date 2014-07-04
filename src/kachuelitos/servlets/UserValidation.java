@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kachuelitos.jsf.UserBean;
 import kachuelitos.model.User;
-import kachuelitos.model.UserDBManager;
+import kachuelitos.model.UserDAO;
 
 /**
  * Servlet implementation class UserValidation
@@ -43,49 +44,43 @@ public class UserValidation extends HttpServlet {
 		//Validamos los campos
 		String dni = request.getParameter("idni");
 		String password = request.getParameter("ipassword");
+		String name = request.getParameter("iname");
+		String lastname = request.getParameter("ilastname");		
 		String email = request.getParameter("iemail");
 		String ubigeo = request.getParameter("iubigeo");
 
+		
 		int typeError  = 0; // No hay error
 		String contentError = null;
 		boolean isError = false;
 
-		if(!dni.isEmpty() && !password.isEmpty() && !email.isEmpty() && !ubigeo.isEmpty()){
-
-			PrintWriter out = response.getWriter();		
-			UserDBManager userdb = new UserDBManager();
+			UserDAO userdb = new UserDAO();	
+			System.out.println("salida "+ dni+"-"+ubigeo+"-"+lastname);
 			
-			User user = new User(Integer.valueOf(dni), password, email, Integer.valueOf(ubigeo));
+			User user = new User(Integer.valueOf(dni), password, name, lastname, email, Integer.valueOf(ubigeo));
 			int result = userdb.addUser(user);
 
 			if(result == 0){
-				HttpSession session = request.getSession();
-				session.setAttribute("keyuser", user);
+//				HttpSession session = request.getSession();
+//				session.setAttribute("keyuser", user);
 				 //Tiempo sesion es 2 minutos
-	            session.setMaxInactiveInterval(2*60);
+//	            session.setMaxInactiveInterval(2*60);				
+				response.sendRedirect("/Kachuelitos/useraccount.xhtml");
+				// Se setea los datos al objecto beans
 				
-				response.sendRedirect("/Kachuelitos/UserAccount");
+				UserBean prueba = new UserBean();
+				prueba.setFirstName(user.getName());
+				
 			}
 			else{
 				// No se pudo anhadir usuario a la DB, usuario repetido
 				typeError = 2;
 				isError = true;
 			}
-			out.println("</body></html>");
-		}
-		else{
-			// Existen campos invalidos
-			typeError = 1;
-			isError = true;
-		}
 
 		if(isError){
 			
 			switch (typeError) {
-			case 1:
-				contentError = "Existen campos vacios, vuelva a llenar el formulario";
-				break;
-
 			case 2:
 				contentError = "No se pudo añadir el usuario, verifique si ya creo una cuenta anteriormente";
 				break;
@@ -104,7 +99,7 @@ public class UserValidation extends HttpServlet {
 					"<body>\n"+
 					"<div align='center' id='main'>\n"+
 					"<img id='mainlogo' src='images/logo.jpg' width='300px'>\n"+
-					"<form action='/Kachuelitos/UserRegister' method='get'>\n"+
+					"<form action='registration.jsp' method='get'>\n"+
 					"<p class='maincontent'>"+contentError+"</p>\n"+
 					"<button >Aceptar</button>\n"+
 					"</form>\n"+
@@ -119,5 +114,4 @@ public class UserValidation extends HttpServlet {
 					"</html>");
 		}
 	}
-
 }

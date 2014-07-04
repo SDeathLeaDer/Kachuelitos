@@ -7,30 +7,28 @@
 <title>Login de Usuario</title>
 <link rel="stylesheet" href="styles/page.css" type="text/css"
 	media="screen" title="no title" charset="utf-8">
+	
 <script type="text/javascript">
+	$(document).ready(function() {
+		$('#submit').click(function(event) {
+			var vdni = $('#idni').val();
+			var vpassword = $('#ipassword').val();
 
-$(document).ready(function() {
-	$('#submit').click(function(event) {
-		var dni = $('#idni').val();
-		var password = $('#ipassword').val();
-		
-		$.post('UserIdentification', {
-			cdni : dni,
-			cpassword: password,
-		}, function(responseText) {
-			if(responseText == 1){
-			 	window.location="useraccount.jsp";
-			 }
-			else{
-				var dni = $('#message');
-				dni.value="No se puede acceder datos incorrectos";
-			}
+			$.post('UserIdentification', {
+				cdni : vdni,
+				cpassword : vpassword,
+			}, function(responseText) {
+				if (responseText == '1') {
+					window.location = "Kachuelitos/UserAccount.java";
+				} else {					
+					var message = $('#imessage');
+					message.value = responseText;					
+				}
+			});
 		});
 	});
-});
-
-
 </script>
+
 </head>
 <body>
 
@@ -51,6 +49,7 @@ $(document).ready(function() {
 				<p class='maincontent'>
 					<input type="button" id="submit" value="Iniciar Sesión" />
 				</p>
+				<p><div id="imessage"></div>
 
 			</fieldset>
 		</form>

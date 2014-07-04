@@ -1,12 +1,39 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Cuenta de Usuario</title>
-</head>
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+<title>Mi Cuenta</title>
+  <h:outputStylesheet  name="style/tab.css" />
+  <h:outputStylesheet  name="style/page.css" />
+</h:head>
 <body>
 
+	<div id='header'>
+		<img id='logo' src='images/logo.jpg' width='250px'></img>
+		<form action='/Kachuelitos/LogoutSession' method='post'>
+			<div id='buttonTop'>
+			Bienvenido	#{PersonaBean.getObjPersona.firstname} <button >Cerrar Sesion</button>
+			</div>			
+		</form>
+	</div>
+	<div id='tabContainer'>
+		<ul id='topTab'>
+			<li><a href='/Kachuelitos/UserAccount' title='Home'
+				class='current'>Mi Cuenta</a></li>
+			<li><a href='/Kachuelitos/UserWorks' title='Home'>Mis
+					Trabajos</a></li>
+			<li><a href='/Kachuelitos/UserCV' title='Home'>Mi CV</a></li>
+		</ul>
+	</div>
+	<div id='content'></div>
+	
+	<div class="footer" align='center'>
+		<hr width='50%'></hr>
+		<p>Derechos Reserv@dos 101 Kachuelitos 2014</p>
+	</div>
 </body>
 </html>

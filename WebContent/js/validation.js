@@ -1,6 +1,3 @@
-/**
- * 
- */
 
 var isCorrect = 1;
 
@@ -12,7 +9,6 @@ var isCorrectEmail = 1;
 var isCorrectPassword = 1;
 
 function validation(element) {
-	
 	
 	var messageAlert = document.getElementById('imessage');
 

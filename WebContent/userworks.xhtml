@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+<title>Trabajos</title>
+
+<h:link rel='stylesheet' href='styles/tab.css' type='text/css'
+	media='screen' title='no title' charset='utf-8'></h:link>
+<h:link rel='stylesheet' href='styles/page.css' type='text/css'
+	media='screen' title='no title' charset='utf-8'></h:link>
+</head>
+<body>
+	<div id="main" align="center">
+		<img id="mainlogo" alt="logo" src="images/logo.jpg" width="300px"></img>
+		<form action="/Kachuelitos/UserValidation" method="post">
+			<fieldset style="width: 300px">
+				<legend align="left">Formulario de registro</legend>
+				<p class="maincontent">
+					DNI <input name="idni" type="number" />
+				</p>
+				<p class="maincontent">
+					Ubigeo <input name="iubigeo" type="number" />
+				</p>
+				<p class="maincontent">
+					Correo <input name="iemail" type="email" />
+				</p>
+				<p class="maincontent">
+					Password <input name="ipassword" type="password" />
+				</p>
+				<p class="maincontent">
+					<button>Registrarse</button>
+				</p>
+			</fieldset>
+		</form>
+	</div>
+	
+	
+	<div class ="footer" align="center">
+		<hr width="50%"></hr>
+		<p>Derechos Reserv@dos 101 Kachuelitos 2014</p>
+	</div>
+</body>
+</html>

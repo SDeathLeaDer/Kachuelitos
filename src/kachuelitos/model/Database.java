@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import kachuelitos.jsf.UserBean;
+
 public class Database {
 
 	private Statement statement;
@@ -21,6 +23,8 @@ public class Database {
 		try {
 			Class.forName(driver).newInstance();
 			connection = DriverManager.getConnection(url+dbName,userName,password);    
+	
+			
 		} 
 		catch (SQLException s){
 			s.printStackTrace();

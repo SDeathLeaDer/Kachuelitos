@@ -4,11 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
+public class UserDAO extends Database {
 
-public class UserDBManager extends Database {
-
-	public UserDBManager() {
+	public UserDAO() {
 
 	}
 
@@ -28,7 +26,7 @@ public class UserDBManager extends Database {
 				while(result.next()){
 
 					alUser.add(new User(result.getInt("DNIUser"), result.getString("ContraseñaUser"), 
-							result.getString("NombreUser"), result.getString("CorreoUser"), result.getInt("Ubigeo_idUbigeo1"),
+							result.getString("NombreUser"), result.getString("ApellidoUser"), result.getString("CorreoUser"), result.getInt("Ubigeo_idUbigeo1"),
 							result.getString("TelefonoUser"), result.getString("DireccionUser"), result.getInt("Trabajador")));
 
 				}
@@ -52,7 +50,7 @@ public class UserDBManager extends Database {
 		else{
 			try {
 				user = new User(result.getInt("DNIUser"), result.getString("ContraseñaUser"), 
-						result.getString("NombreUser"), result.getString("CorreoUser"), result.getInt("Ubigeo_idUbigeo1"),
+						result.getString("NombreUser"), result.getString("ApellidoUser"), result.getString("CorreoUser"), result.getInt("Ubigeo_idUbigeo1"),
 						result.getString("TelefonoUser"), result.getString("DireccionUser"), result.getInt("Trabajador"));
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -68,15 +66,13 @@ public class UserDBManager extends Database {
 	public int addUser(User user){
 		connectionDB();
 
-		//		int result = queryUpdateDB("insert into user values("+user.getDni()+","+user.getPassword()+","+user.getName()+
-		//				","+user.getEmail()+","+user.getUbige()+","+user.getPhone()+","+user.getAddress()+
-		//				","+user.getWorkFlag()+")");
+		int result = queryUpdateDB("insert into user values('"+user.getDni()+"','"+user.getPassword()+"','"+user.getName()+"','"
+				+user.getLasname()+"','"+user.getEmail()+"','"+user.getUbige()+"',"+null+","+null+",'0')");
 
-		int result = queryUpdateDB("insert into user values('"+user.getDni()+"','"+user.getPassword()+"','"+null+
-				"','"+user.getEmail()+"','"+user.getUbige()+"',"+null+","+null+",'0')");
-
+		System.out.println("salida: insert into user values('"+user.getDni()+"','"+user.getPassword()+"','"+user.getName()+"','"
+				+user.getLasname()+"','"+user.getEmail()+"','"+user.getUbige()+"',"+null+","+null+",'0')");
+	
 		disconnectionDB();
-
 		return result;
 	}
 
@@ -96,18 +92,18 @@ public class UserDBManager extends Database {
 				while (result.next()) {
 					System.out.println(result.getString("ContrasenhaUser"));
 					user = new User(result.getInt("DNIUser"), result.getString("ContrasenhaUser"), 
-							result.getString("NombreUser"), result.getString("CorreoUser"), result.getInt("Ubigeo_idUbigeo1"),
+							result.getString("NombreUser"),result.getString("ApellidoUser"), result.getString("CorreoUser"), result.getInt("Ubigeo_idUbigeo1"),
 							result.getString("TelefonoUser"), result.getString("DireccionUser"), result.getInt("Trabajador"));
 				}
 
 			} catch (SQLException e) {
 				e.printStackTrace();
 				user = null;
-	
 			}
 		}
 
 		disconnectionDB();
 		return user;
 	}
+
 }

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+<title>Mi CV</title>
+
+<h:link rel='stylesheet' href='styles/tab.css' type='text/css'
+	media='screen' title='no title' charset='utf-8'></h:link>
+<h:link rel='stylesheet' href='styles/page.css' type='text/css'
+	media='screen' title='no title' charset='utf-8'></h:link>
+</head>
+<body>
+	<div id='header'>
+		<img id='logo' src='images/logo.jpg' width='250px' />
+		<form action='/Kachuelitos/LogoutSession' method='post'>
+			<button id='buttonTop'>Cerrar Sesion</button>
+		</form>
+	</div>
+	<div id='tabContainer'>
+		<ul id='topTab'>
+			<li><a href='/Kachuelitos/UserAccount' title='Home'>Mi
+					Cuenta</a></li>
+			<li><a href='/Kachuelitos/UserWorks' title='Home'>Mis
+					Trabajos</a></li>
+			<li><a href='/Kachuelitos/UserCV' title='Home' class='current'>Mi
+					CV</a></li>
+		</ul>
+	</div>
+	<div id='content'>
+		<p>Bienvenido: user.getName()</p>
+	</div>
+	<footer>
+	<div align='center'>
+		<hr width='50%'></hr>
+			<p>Derechos Reserv@dos 101 Kachuelitos 2014</p>
+	</div>
+	</footer>
+</body>
+</html>

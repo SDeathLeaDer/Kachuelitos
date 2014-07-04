@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kachuelitos.model.User;
-import kachuelitos.model.UserDBManager;
+import kachuelitos.model.UserDAO;
 
 /**
  * Servlet implementation class UserWorks

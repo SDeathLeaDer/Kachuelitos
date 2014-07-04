@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Bienvenidos a Kachuelitos</title>
-<link rel="stylesheet" href="styles/page.css" type="text/css"
+<link rel="stylesheet" href="resources/style/page.css" type="text/css"
 	media="screen" title="no title" charset="utf-8">
 </head>
 <body>

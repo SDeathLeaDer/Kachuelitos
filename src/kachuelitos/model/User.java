@@ -5,36 +5,41 @@ public class User {
 	private int dni;
 	private String password;
 	private String name;
+	private String lasname;
 	private String email;
 	private int ubige;
 	private String phone;
-	private String  address;
+	private String address;
 	private int workFlag;
 
-
-
-	public User(int dni, String password, String email, int ubige) {
-		super();
-		this.dni = dni;
-		this.password = password;
-		this.email = email;
-		this.ubige = ubige;
+	public User() {
+		// TODO Auto-generated constructor stub
 	}
 
-	public User(int dni, String password, String name, String email, int ubige,
-			String phone, String address, int workFlag) {
+	public User(int dni, String password, String name, String lasname,
+			String email, int ubige) {
 		super();
 		this.dni = dni;
 		this.password = password;
 		this.name = name;
+		this.lasname = lasname;
+		this.email = email;
+		this.ubige = ubige;
+	}
+
+	public User(int dni, String password, String name, String lasname,
+			String email, int ubige, String phone, String address, int workFlag) {
+		super();
+		this.dni = dni;
+		this.password = password;
+		this.name = name;
+		this.lasname = lasname;
 		this.email = email;
 		this.ubige = ubige;
 		this.phone = phone;
 		this.address = address;
 		this.workFlag = workFlag;
 	}
-
-
 
 	public int getDni() {
 		return dni;
@@ -100,7 +105,12 @@ public class User {
 		this.workFlag = workFlag;
 	}
 
+	public String getLasname() {
+		return lasname;
+	}
 
-
+	public void setLasname(String lasname) {
+		this.lasname = lasname;
+	}
 
 }
