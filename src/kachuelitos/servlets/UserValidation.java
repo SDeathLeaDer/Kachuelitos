@@ -66,10 +66,6 @@ public class UserValidation extends HttpServlet {
 				 //Tiempo sesion es 2 minutos
 //	            session.setMaxInactiveInterval(2*60);				
 				response.sendRedirect("/Kachuelitos/useraccount.xhtml");
-				// Se setea los datos al objecto beans
-				
-				UserBean prueba = new UserBean();
-				prueba.setFirstName(user.getName());
 				
 			}
 			else{
