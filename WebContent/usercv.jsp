@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Trabajos</title>
+<title>Mi CV</title>
 
 <link rel="stylesheet" href="styles/tab.css" type="text/css"
 	media="screen" title="no title" charset="utf-8">
@@ -31,9 +31,9 @@
 		<ul id='topTab'>
 			<li><a href='useraccount.jsp' title='Home'>Mi
 					Cuenta</a></li>
-			<li><a href='userworks.jsp' title='Home' class='current'>Mis
+			<li><a href='userworks.jsp' title='Home'>Mis
 					Trabajos</a></li>
-			<li><a href='usercv.jsp' title='Home' >Mi
+			<li><a href='usercv.jsp' title='Home' class='current'>Mi
 					CV</a></li>
 		</ul>
 	</div>

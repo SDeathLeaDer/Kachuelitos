@@ -40,6 +40,8 @@ public class UserIdentification extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//Validamos los campos
+		
+		System.out.println("esta aqui");
 		String dni = request.getParameter("vdni");
 		String password = request.getParameter("vpassword");
 

@@ -9,12 +9,10 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class UserAction extends ActionSupport implements SessionAware  {
+public class UserLoginAction extends ActionSupport implements SessionAware  {
 	
-	private String dni;
-	private String ubigeo;
-	private String email;
-	private String password;
+	private int idni;
+	private String spassword;
 	private  Map<String, Object> session;
 	private User user;
 	
@@ -25,10 +23,10 @@ public class UserAction extends ActionSupport implements SessionAware  {
 	
 	public String validateUser() {
 
-		System.out.println("salida" + dni +"-" +password);
+		System.out.println("salida" + idni +"-" +spassword);
 		
 		UserDAO userdao = new UserDAO();
-		user = userdao.identificationUser(Integer.valueOf(dni), password);
+		user = userdao.identificationUser(idni, spassword);
 
 		if(user != null){
 			
@@ -43,25 +41,22 @@ public class UserAction extends ActionSupport implements SessionAware  {
 	}
 
 
-	public String getDni() {
-		return dni;
+
+	public int getIdni() {
+		return idni;
 	}
 
-
-	public void setDni(String dni) {
-		this.dni = dni;
+	public void setIdni(int idni) {
+		this.idni = idni;
 	}
 
-
-	public String getPassword() {
-		return password;
+	public String getSpassword() {
+		return spassword;
 	}
 
-
-	public void setPassword(String password) {
-		this.password = password;
+	public void setSpassword(String spassword) {
+		this.spassword = spassword;
 	}
-
 
 	public Map<String, Object> getSession() {
 		return session;

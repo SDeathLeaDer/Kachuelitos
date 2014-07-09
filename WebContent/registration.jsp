@@ -6,7 +6,8 @@ z
 <title>Registro de Usuario</title>
 <link rel="stylesheet" href="resources/style/page.css" type="text/css"
 	media="screen" title="no title" charset="utf-8">
-<script type="text/javascript" src="js/validation.js"></script>
+	
+<script type="text/javascript" src="js/validationRegister.js"></script>
 
 </head>
 <body>

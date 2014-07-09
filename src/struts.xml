@@ -5,10 +5,14 @@
 
 <struts>
 	<package name="Login" extends="struts-default">
-		<action name="UserValidationAction" class="kachuelitos.struts.UserAction"
+		<action name="actionUserIdentification" class="kachuelitos.struts.UserLoginAction"
 			method="validateUser">
-			<result name="success">/dashboard.jsp</result>
+			<result name="success">/useraccount.jsp</result>
 			<result name="error">/login.jsp</result>
+		</action>
+		<action name="actionLogOut" class="kachuelitos.struts.UserLogOutAction"
+			method="logoutUser">
+			<result name="success">/logout.jsp</result>
 		</action>
 	</package>
 </struts>

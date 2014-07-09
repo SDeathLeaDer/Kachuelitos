@@ -1,33 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login de Usuario</title>
+
 <link rel="stylesheet" href="styles/page.css" type="text/css"
 	media="screen" title="no title" charset="utf-8">
 	
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#submit').click(function(event) {
-			var vdni = $('#idni').val();
-			var vpassword = $('#ipassword').val();
 
-			$.post('UserIdentification', {
-				cdni : vdni,
-				cpassword : vpassword,
-			}, function(responseText) {
-				if (responseText == '1') {
-					window.location = "Kachuelitos/UserAccount.java";
-				} else {					
-					var message = $('#imessage');
-					message.value = responseText;					
-				}
-			});
-		});
-	});
-</script>
+<script type="text/javascript" src="js/validationLogin.js"></script>
 
 </head>
 <body>
@@ -38,22 +22,44 @@
 
 	<div id='main' align='center'>
 
-		<form>
-			<fieldset style='width: 300px'>
-				<legend align='left'>Login</legend>
-				<p class='maincontent'>
-					DNI <input name='idni' type='number' />
-				</p>
-				Password <input name='ipassword' type='password' />
-				</p>
-				<p class='maincontent'>
-					<input type="button" id="submit" value="Iniciar Sesión" />
-				</p>
-				<p><div id="imessage"></div>
 
-			</fieldset>
+		<form action="actionUserIdentification" method="post"
+			onsubmit="return validationSubmit();">
+
+			<table id="tablelogin" cellspacing="0px">
+
+				<tr>
+					<td colspan="3" align="center">Inicio de Sesión</td>
+				</tr>
+				<tr>
+					<td class="tdLabel"><label for="quizBasic_name" class="label">DNI:</label>
+					</td>
+					<td><input id='idni' name="idni" onchange="validation('idni')" /></td>
+
+					<td class="tdLabel"><img id="dni_check"></td>
+				</tr>
+				<tr>
+					<td class="tdLabel"><label for="quizBasic_age" class="label">Contraseña:</label>
+					</td>
+					<td><input id='spassword' name="spassword" value='123Abcde'
+						type="password" onchange="validation('spassword')" /></td>
+					<td class="tdLabel"><img id="password_check"></td>
+				</tr>
+
+				<tr>
+					<td colspan="3" align="center">
+						<button>Iniciar Sesión</button>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3" align="center" class="tdLabel"><div
+							id="imessage"></div></td>
+				</tr>
+			</table>
+
 		</form>
-		<form action='/Kachuelitos/UserRegister' method='get'>
+
+		<form action='registration.jsp' method='get'>
 			<p class='maincontent2'>
 				¿Quiere ser parte de la red de trabajadores de 101 Kachuelitos?
 				<button>Unete</button>
