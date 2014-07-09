@@ -10,20 +10,21 @@
 <body>
 <div id="main" align="center">
 		<img id="mainlogo" alt="logo" src="images/logo.jpg" width="300px"></img>
-		<s:form action="UserValidation" method="get">
+		<s:form action="UserValidationAction" method="get">
 			<fieldset style="width: 300px">
 				<legend align="left">Formulario de registro</legend>
+				
 				<s:textfield  name="dni" type="number" size="8" label="DNI" />
-				</p>
+				
 				<s:textfield name="ubigeo" type="number" size="6" label="Ubigeo"/>
-				</p>
+				
 				<s:textfield name="email" type="email" label="Correo"/>
-				</p>
+				
 				<s:textfield name="password" type="password" label="Password"/>
-				</p>
+				
 				<s:submit value="validateUser" />
 					<button>Registrarse</button>
-				</p>
+				
 			</fieldset>
 		</s:form>
 	</div>
