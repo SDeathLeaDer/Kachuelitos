@@ -21,10 +21,11 @@ public class UserLoginAction extends ActionSupport implements SessionAware  {
 		this.session = session;
 	}
 	
+	
 	public String validateUser() {
 
 		System.out.println("salida" + idni +"-" +spassword);
-		
+				
 		UserDAO userdao = new UserDAO();
 		user = userdao.identificationUser(idni, spassword);
 
@@ -58,9 +59,6 @@ public class UserLoginAction extends ActionSupport implements SessionAware  {
 		this.spassword = spassword;
 	}
 
-	public Map<String, Object> getSession() {
-		return session;
-	}
 
 	public User getUser() {
 		return user;
@@ -68,6 +66,11 @@ public class UserLoginAction extends ActionSupport implements SessionAware  {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+
+	public Map<String, Object> getSession() {
+		return session;
 	}
 
 }

@@ -3,33 +3,32 @@ package kachuelitos.struts;
 import java.util.Map;
 
 import kachuelitos.model.User;
-import kachuelitos.model.UserDAO;
 
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class UserLogOutAction extends ActionSupport  {
+public class UserLogOutAction extends ActionSupport implements SessionAware  {
 	
-	private User user;
+	private  Map<String, Object> session;
 		
 	public String logoutUser() {
 
-
-		//Se guarda la session
-		//getSession().
-		//session.put("user", user);
-		return SUCCESS;
-			
+		
+		if(session.containsKey("user")){	
+			session.remove("user");
+			return SUCCESS;
+		}
+		else{
+			return ERROR;
+		}
 
 	}
 
-	public User getUser() {
-		return user;
-	}
 
-	public void setUser(User user) {
-		this.user = user;
+	@Override
+	public void setSession(Map<String, Object> session) {
+		this.session = session;
+		
 	}
-
 }

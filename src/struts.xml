@@ -13,6 +13,7 @@
 		<action name="actionLogOut" class="kachuelitos.struts.UserLogOutAction"
 			method="logoutUser">
 			<result name="success">/logout.jsp</result>
+			<result name="error">/error.jsp</result>
 		</action>
 	</package>
 </struts>
