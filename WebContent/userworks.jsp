@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@page import="com.opensymphony.xwork2.ActionContext"%>
+<%@page import="kachuelitos.model.*"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -12,6 +15,7 @@
 
 <link rel="stylesheet" href="styles/page.css" type="text/css"
 	media="screen" title="no title" charset="utf-8">
+
 </head>
 <body>
 	<div id='header'>
@@ -19,9 +23,8 @@
 		<form action='actionLogOut' method='post'>
 
 			<div id='buttonTop'>
-				Bienvenido
-				<s:property value="user.name" />
-				<s:property value="user.lasname" />
+				Bienvenido <s:property value="#session.user.name"/>			
+				<s:property value="#session.user.lasname" />
 				<button>Cerrar Sesion</button>
 			</div>
 		</form>

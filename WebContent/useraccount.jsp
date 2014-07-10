@@ -2,7 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@page import="kachuelitos.model.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,11 +19,11 @@
 		<img id='logo' src='images/logo.jpg' width='250px' />
 		<form action='actionLogOut' method='post'>
 
-<%
 
-%>
 			<div id='buttonTop'>
-				Bienvenido <s:property value="" /><s:property value="user.lasname" />	
+				Bienvenido <s:property value="#session.user.name"/>			
+				<s:property value="#session.user.lasname" />
+			
 				<button>Cerrar Sesion</button>
 			</div>
 		</form>
@@ -37,7 +36,7 @@
 				class='current'>Mi Cuenta</a></li>
 			<li><a href='userworks.jsp' title='Home'>Mis
 					Trabajos</a></li>
-			<li><a href='usercv.jsp' title='Home' class='current'>Mi
+			<li><a href='usercv.jsp' title='Home' >Mi
 					CV</a></li>
 		</ul>
 	</div>

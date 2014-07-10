@@ -1,3 +1,13 @@
+<%@page import="com.opensymphony.xwork2.ActionInvocation"%>
+<%@page import="org.apache.catalina.Session"%>
+
+<%@page import="org.apache.struts2.interceptor.SessionAware"%>
+<%@page import="com.opensymphony.xwork2.config.impl.ActionConfigMatcher"%>
+<%@page import="com.opensymphony.xwork2.ActionContext"%>
+<%@page import="com.opensymphony.xwork2.ActionInvocation"%>
+<%@page import="kachuelitos.struts.UserLoginAction"%>
+<%@page import="kachuelitos.model.User"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -12,6 +22,7 @@
 
 <link rel="stylesheet" href="styles/page.css" type="text/css"
 	media="screen" title="no title" charset="utf-8">
+
 </head>
 <body>
 	<div id='header'>
@@ -19,9 +30,10 @@
 		<form action='actionLogOut' method='post'>
 
 			<div id='buttonTop'>
-				Bienvenido
-				<s:property value="user.name" />
-				<s:property value="user.lasname" />
+			
+				Bienvenido <s:property value="#session.user.name"/>			
+				<s:property value="#session.user.lasname" />
+				
 				<button>Cerrar Sesion</button>
 			</div>
 		</form>
