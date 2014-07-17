@@ -6,7 +6,7 @@
 <%@page import="com.opensymphony.xwork2.ActionContext"%>
 <%@page import="com.opensymphony.xwork2.ActionInvocation"%>
 <%@page import="kachuelitos.struts.UserLoginAction"%>
-<%@page import="kachuelitos.model.User"%>
+<%@page import="kachuelitos.persistence.dao.User"%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>

@@ -5,8 +5,8 @@
 
 <struts>
 	<package name="Login" extends="struts-default">
-		<action name="actionUserIdentification" class="kachuelitos.struts.UserLoginAction"
-			method="validateUser">
+		<action name="actionUserIdentification"  class="kachuelitos.struts.UserLoginAction"
+			method="validateUser" >
 			<result name="success">/useraccount.jsp</result>
 			<result name="error">/login.jsp</result>
 		</action>

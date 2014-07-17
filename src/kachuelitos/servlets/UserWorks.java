@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kachuelitos.model.User;
-import kachuelitos.model.UserDAO;
+import kachuelitos.persistence.dao.User;
+
+
 
 /**
  * Servlet implementation class UserWorks

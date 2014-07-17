@@ -2,7 +2,7 @@ package kachuelitos.struts;
 
 import java.util.Map;
 
-import kachuelitos.model.User;
+import kachuelitos.persistence.dao.User;
 
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -24,7 +24,6 @@ public class UserLogOutAction extends ActionSupport implements SessionAware  {
 		}
 
 	}
-
 
 	@Override
 	public void setSession(Map<String, Object> session) {

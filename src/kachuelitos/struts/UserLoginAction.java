@@ -2,8 +2,8 @@ package kachuelitos.struts;
 
 import java.util.Map;
 
-import kachuelitos.model.User;
-import kachuelitos.model.UserDAO;
+import kachuelitos.persistence.dao.User;
+import kachuelitos.persistence.dao.UserDAO;
 
 import org.apache.struts2.interceptor.SessionAware;
 

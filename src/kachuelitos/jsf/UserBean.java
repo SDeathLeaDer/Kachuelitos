@@ -5,9 +5,9 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-import kachuelitos.model.User;
 //import kachuelitos.jsf.PersonaDAO;
-import kachuelitos.model.UserDAO;
+import kachuelitos.persistence.dao.User;
+import kachuelitos.persistence.dao.UserDAO;
 
 @ManagedBean 
 @RequestScoped 

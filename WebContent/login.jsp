@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" href="styles/page.css" type="text/css"
 	media="screen" title="no title" charset="utf-8">
-	
+
 
 <script type="text/javascript" src="js/validationLogin.js"></script>
 
@@ -21,7 +21,6 @@
 	</div>
 
 	<div id='main' align='center'>
-
 
 		<form action="actionUserIdentification" method="post"
 			onsubmit="return validationSubmit();">
