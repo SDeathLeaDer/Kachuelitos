@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import kachuelitos.persistence.entity.SessionFactoryUtil;
+import kachuelitos.persistence.entity.ServicioHasTrabajador;
 import kachuelitos.persistence.entity.User;
 
 import org.hibernate.Query;
@@ -12,15 +13,16 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 
-public class UserDAO {
+public class ServicioHasTrabajadorDAO {
 
 	private SessionFactory session;
 
-	public UserDAO() {			
+	public ServicioHasTrabajadorDAO() {			
 		session = SessionFactoryUtil.getInstance();
 	}
 
-	public List<User> getAllUser(){
+	
+	public List<ServicioHasTrabajador> getAllServicioHasTrab(){
 
 		/*
 		connectionDB();
@@ -52,24 +54,41 @@ public class UserDAO {
 		Session s = session.getCurrentSession();
 		
 		Transaction trans=s.beginTransaction();
-		List<User> listUsuario = (List<User>)s.createQuery("from User").list();
+		List<ServicioHasTrabajador> listServicioHasTrab = (List<ServicioHasTrabajador>)s.createQuery("from ServicioHasTrabajador").list();
 	
 		trans.commit();
 
-		return listUsuario;
+		return listServicioHasTrab;
 	}
 
-	public User getUser(int dni){
+	public ServicioHasTrabajador getServicioHasTrab(int idServicio, int idUser){
 
 		//connectionDB();
 			
+		
+		ServicioHasTrabajador ServicioHasTrab = null; 
 		Session s = session.getCurrentSession();
 		
 		Transaction trans=s.beginTransaction();
-		User user = (User)s.get(User.class, dni);
-
-		trans.commit();
 		
+		
+		Query query= s.createQuery("FROM ServicioHasTrabajador S WHERE S.servicioIdServicio = :idServicio and "
+				+ "S.trabajadorUserDniuser = :idUser");
+		query.setParameter("servicioIdServicio", idServicio);
+		query.setParameter("trabajadorUserDniuser", idUser);
+	
+		
+		trans.commit();
+				
+		List lServicioHasTra = query.list();
+		Iterator listIterator = lServicioHasTra.iterator();
+		
+        while(listIterator.hasNext())
+        {
+        	ServicioHasTrabajador ServicioHasTrabTemp = (ServicioHasTrabajador) listIterator.next();
+        	ServicioHasTrab = ServicioHasTrabTemp;
+        }
+
 		
 		/*
 		ResultSet result = queryDB("select * from user where DNIUser ="+ dni);
@@ -90,12 +109,10 @@ public class UserDAO {
 
 		disconnectionDB();
 		*/
-		return user;
-		
-
+		return ServicioHasTrab;
 	}
 
-	public void addUser(User user){
+	public void addServicioHasTrab(ServicioHasTrabajador ServicioHasTrab){
 		
 
 		//connectionDB();
@@ -103,7 +120,7 @@ public class UserDAO {
 		Session s = session.getCurrentSession();
 		
 		Transaction trans=s.beginTransaction();
-		s.save(user);
+		s.save(ServicioHasTrab);
 
 		trans.commit();
 		
@@ -117,61 +134,5 @@ public class UserDAO {
 		disconnectionDB();
 		*/
 		//return result;
-	}
-
-	public User identificationUser(int dni, String password){
-
-		User user = null; 
-		Session s = session.getCurrentSession();
-		
-		Transaction trans=s.beginTransaction();
-		
-		Query query= s.createQuery("FROM User U WHERE U.dniuser = :dni and U.contrasenhaUser = :password");
-		query.setParameter("dni", dni);
-		query.setParameter("password", password);
-
-		List lUser = query.list();
-		Iterator listIterator = lUser.iterator();
-		
-        while(listIterator.hasNext())
-        {
-            User usertemp = (User) listIterator.next();
-            user = usertemp;
-        }
-
-		trans.commit();
-
-		//connectionDB();
-		
-	//	System.out.println("select * from user where DNIUser ="+ dni+" and ContrasenhaUser ="+password);
-		
-		/*
-		ResultSet result = queryDB("select * from user where DNIUser = '"+ dni+"' and ContrasenhaUser = '"+password+"'");
-		User user = null; 
-
-		if(result == null){
-			user = null;
-		}
-		else{
-			try {
-				while (result.next()) {
-					System.out.println(result.getString("ContrasenhaUser"));
-					user = new User(result.getInt("DNIUser"), result.getString("ContrasenhaUser"), 
-							result.getString("NombreUser"),result.getString("ApellidoUser"), result.getString("CorreoUser"), result.getInt("Ubigeo_idUbigeo1"),
-							result.getString("TelefonoUser"), result.getString("DireccionUser"), result.getInt("Trabajador"));
-				}
-
-			} catch (SQLException e) {
-				e.printStackTrace();
-				user = null;
-			}
-		}
-
-		disconnectionDB();
-		*/
-		
-		
-		
-		return user;
 	}
 }

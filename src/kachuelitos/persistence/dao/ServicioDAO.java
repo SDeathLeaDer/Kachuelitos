@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import kachuelitos.persistence.entity.SessionFactoryUtil;
-import kachuelitos.persistence.entity.User;
+import kachuelitos.persistence.entity.Servicio;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -12,15 +12,16 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 
-public class UserDAO {
+public class ServicioDAO {
 
 	private SessionFactory session;
 
-	public UserDAO() {			
+	public ServicioDAO() {			
 		session = SessionFactoryUtil.getInstance();
 	}
 
-	public List<User> getAllUser(){
+	
+	public List<Servicio> getAllService(){
 
 		/*
 		connectionDB();
@@ -52,21 +53,21 @@ public class UserDAO {
 		Session s = session.getCurrentSession();
 		
 		Transaction trans=s.beginTransaction();
-		List<User> listUsuario = (List<User>)s.createQuery("from User").list();
+		List<Servicio> listService = (List<Servicio>)s.createQuery("from Servicio").list();
 	
 		trans.commit();
 
-		return listUsuario;
+		return listService;
 	}
 
-	public User getUser(int dni){
+	public Servicio getService(int idService){
 
 		//connectionDB();
 			
 		Session s = session.getCurrentSession();
 		
 		Transaction trans=s.beginTransaction();
-		User user = (User)s.get(User.class, dni);
+		Servicio service = (Servicio)s.get(Servicio.class, idService);
 
 		trans.commit();
 		
@@ -90,12 +91,10 @@ public class UserDAO {
 
 		disconnectionDB();
 		*/
-		return user;
-		
-
+		return service;
 	}
 
-	public void addUser(User user){
+	public void addService(Servicio service){
 		
 
 		//connectionDB();
@@ -103,7 +102,7 @@ public class UserDAO {
 		Session s = session.getCurrentSession();
 		
 		Transaction trans=s.beginTransaction();
-		s.save(user);
+		s.save(service);
 
 		trans.commit();
 		
@@ -117,61 +116,5 @@ public class UserDAO {
 		disconnectionDB();
 		*/
 		//return result;
-	}
-
-	public User identificationUser(int dni, String password){
-
-		User user = null; 
-		Session s = session.getCurrentSession();
-		
-		Transaction trans=s.beginTransaction();
-		
-		Query query= s.createQuery("FROM User U WHERE U.dniuser = :dni and U.contrasenhaUser = :password");
-		query.setParameter("dni", dni);
-		query.setParameter("password", password);
-
-		List lUser = query.list();
-		Iterator listIterator = lUser.iterator();
-		
-        while(listIterator.hasNext())
-        {
-            User usertemp = (User) listIterator.next();
-            user = usertemp;
-        }
-
-		trans.commit();
-
-		//connectionDB();
-		
-	//	System.out.println("select * from user where DNIUser ="+ dni+" and ContrasenhaUser ="+password);
-		
-		/*
-		ResultSet result = queryDB("select * from user where DNIUser = '"+ dni+"' and ContrasenhaUser = '"+password+"'");
-		User user = null; 
-
-		if(result == null){
-			user = null;
-		}
-		else{
-			try {
-				while (result.next()) {
-					System.out.println(result.getString("ContrasenhaUser"));
-					user = new User(result.getInt("DNIUser"), result.getString("ContrasenhaUser"), 
-							result.getString("NombreUser"),result.getString("ApellidoUser"), result.getString("CorreoUser"), result.getInt("Ubigeo_idUbigeo1"),
-							result.getString("TelefonoUser"), result.getString("DireccionUser"), result.getInt("Trabajador"));
-				}
-
-			} catch (SQLException e) {
-				e.printStackTrace();
-				user = null;
-			}
-		}
-
-		disconnectionDB();
-		*/
-		
-		
-		
-		return user;
 	}
 }
