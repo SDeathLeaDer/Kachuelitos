@@ -6,7 +6,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 //import kachuelitos.jsf.PersonaDAO;
-import kachuelitos.persistence.dao.User;
+import kachuelitos.persistence.entity.*;
 import kachuelitos.persistence.dao.UserDAO;
 
 @ManagedBean 
@@ -21,7 +21,7 @@ public class UserBean implements Serializable { /** * */
 	
 		
 	public String validar() throws Exception{
-		
+		/*
 		UserDAO useDAO = new UserDAO();
 		String sResponse = null;
 		
@@ -34,7 +34,8 @@ public class UserBean implements Serializable { /** * */
 		else{
 			sResponse ="success";	
 		}
-		return sResponse;
+		return sResponse;*/
+		return null;
 	}
 		
 	public int getDni(){

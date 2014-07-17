@@ -2,10 +2,8 @@ package kachuelitos.struts;
 
 import java.util.Map;
 
-import kachuelitos.persistence.dao.User;
-
+import kachuelitos.persistence.entity.User;
 import org.apache.struts2.interceptor.SessionAware;
-
 import com.opensymphony.xwork2.ActionSupport;
 
 public class UserLogOutAction extends ActionSupport implements SessionAware  {

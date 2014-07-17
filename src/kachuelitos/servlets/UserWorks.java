@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kachuelitos.persistence.dao.User;
+import kachuelitos.persistence.entity.User;
 
 
 
@@ -62,7 +62,7 @@ public class UserWorks extends HttpServlet {
 				"</ul>\n"+
 				"</div>\n"+
 				"<div id='content'>\n"+
-				"<p>Bienvenido: "+user.getName()+"</p>\n"+
+				"<p>Bienvenido: "+"</p>\n"+
 				"</div>\n"+
 				"<footer>\n"+
 				"<div align='center'>\n"+

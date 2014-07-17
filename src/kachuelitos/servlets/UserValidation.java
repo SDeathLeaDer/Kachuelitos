@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kachuelitos.persistence.dao.User;
+import kachuelitos.persistence.entity.User;
 import kachuelitos.persistence.dao.UserDAO;
 
 
@@ -57,9 +57,10 @@ public class UserValidation extends HttpServlet {
 			UserDAO userdb = new UserDAO();	
 			System.out.println("salida "+ dni+"-"+ubigeo+"-"+lastname);
 			
-			User user = new User(Integer.valueOf(dni), password, name, lastname, email, Integer.valueOf(ubigeo));
-			int result = userdb.addUser(user);
-
+			//User user = new User(Integer.valueOf(dni), password, name, lastname, email, Integer.valueOf(ubigeo));
+			User user  = null;
+			//int result = userdb.addUser(user);
+			int result = 0;
 			if(result == 0){
 //				HttpSession session = request.getSession();
 //				session.setAttribute("keyuser", user);

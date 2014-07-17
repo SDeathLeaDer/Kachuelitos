@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kachuelitos.persistence.dao.User;
+import kachuelitos.persistence.entity.User;
 import kachuelitos.persistence.dao.UserDAO;
 
 
@@ -54,9 +54,11 @@ public class UserIdentification extends HttpServlet {
 		if(!dni.isEmpty() && !password.isEmpty()){
 
 			UserDAO userdb = new UserDAO();
-			User user = userdb.identificationUser(Integer.valueOf(dni), password);
+			//User user = userdb.identificationUser(Integer.valueOf(dni), password);
 			//			int result = userdb.addUser(new User(Integer.valueOf(dni), password, email, Integer.valueOf(ubigeo)));
 
+			User user = null;
+			
 			if(user != null){
 				HttpSession session = request.getSession();
 				session.setAttribute("keyuser", user);
